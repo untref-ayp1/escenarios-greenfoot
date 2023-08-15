@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=Direccion
+comment1.params=rotacion\ dx\ dy
+comment1.target=Direccion(int,\ int,\ int)
+numComments=2

@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Asteroide
+comment1.params=
+comment1.target=Asteroide()
+comment2.params=
+comment2.target=void\ act()
+comment3.params=atacante
+comment3.target=void\ recibirDa\u00F1oDe(Atacante)
+comment4.params=
+comment4.target=void\ crearExplosionEncima()
+comment5.params=
+comment5.target=void\ actualizarImagen()
+comment6.params=world
+comment6.target=void\ addedToWorld(greenfoot.World)
+numComments=7

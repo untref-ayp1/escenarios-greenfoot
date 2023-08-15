@@ -1,0 +1,13 @@
+#BlueJ class context
+comment0.target=Mundo02
+comment1.params=
+comment1.target=Mundo02()
+comment2.params=
+comment2.target=void\ generarNave()
+comment3.params=
+comment3.target=void\ generarPOIs()
+comment4.params=
+comment4.target=void\ generarItems()
+comment5.params=
+comment5.target=void\ generarAsteroides()
+numComments=6

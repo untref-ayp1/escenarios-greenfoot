@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.target=NaveBase
+comment1.params=
+comment1.target=NaveBase()
+comment10.params=direccion
+comment10.target=void\ moverHacia(Direccion)
+comment11.params=
+comment11.target=void\ updateFuelImage()
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment3.params=
+comment3.target=void\ consumirCombustible()
+comment4.params=combustible
+comment4.target=void\ cargarCombustible(int)
+comment5.params=
+comment5.target=int\ obtenerCombustible()
+comment6.params=
+comment6.target=double\ obtenerProporcionDeCombustible()
+comment7.params=direccion
+comment7.target=boolean\ hayAsteroideHacia(Direccion)
+comment8.params=direccion
+comment8.target=boolean\ hayItemHacia(Direccion)
+comment9.params=direccion
+comment9.target=boolean\ hayNaveHacia(Direccion)
+numComments=12
