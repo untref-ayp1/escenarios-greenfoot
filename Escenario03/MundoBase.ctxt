@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=MundoBase
+comment1.params=width\ height
+comment1.target=MundoBase(int,\ int)
+comment2.params=
+comment2.target=void\ generarPOIs()
+comment3.params=
+comment3.target=void\ generarGrilla()
+comment4.params=
+comment4.target=void\ generarAsteroides()
+comment5.params=
+comment5.target=void\ generarItems()
+comment6.params=
+comment6.target=void\ generarNave()
+comment7.params=x\ y\ color
+comment7.target=void\ marcarCelda(int,\ int,\ greenfoot.Color)
+comment8.params=actor\ x\ y
+comment8.target=void\ agregar(greenfoot.Actor,\ int,\ int)
+comment9.params=asteroides
+comment9.target=void\ poblarAsteroides(boolean[][])
+numComments=10

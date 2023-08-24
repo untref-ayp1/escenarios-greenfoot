@@ -2,14 +2,37 @@ import greenfoot.*;
 
 public class NaveDeAtaque extends NaveAliada implements Atacante {
 
-    @Override
+	public boolean estaEnElBorde() {
+		return isAtEdge();
+	}
+	
+	public boolean hayVacioHacia(Direccion direccion) {
+		int width = getWorld().getWidth() - 1;
+        int height = getWorld().getHeight() - 1;
+        int x = getX();
+        int y = getY(); 
+        
+		switch (direccion) {
+		case NORTE:
+			return y == 0;
+		case SUR:
+			return y == height;
+		case ESTE:
+			return x == width;
+		case OESTE:
+			return x == 0;
+		}
+		return false;
+	}
+	
+	@Override
     public int obtenerDaño() {
         return 35;
     }
     
     @Override
     int obtenerConsumoPorMovimiento() {
-        return 15;
+        return 7;
     }
 
     @Override

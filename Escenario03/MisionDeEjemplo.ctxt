@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.target=MisionDeEjemplo
+comment1.params=naveAlfa\ naveBeta
+comment1.target=void\ ejecutar(NaveDeAtaque,\ NaveDeAtaque)
+numComments=2
