@@ -11,6 +11,11 @@ public abstract class NaveAliada extends NaveBase {
     abstract int obtenerCombustibleMaximo();
     abstract int obtenerConsumoPorMovimiento();
     
+    public void recibirCombustible(int cantidad) {
+        this.combustible = Math.min(this.combustible + cantidad, obtenerCombustibleMaximo());
+        updateImage();
+    }
+    
     public void recibirDañoDe(Atacante atacante) {
         int daño = atacante.obtenerDaño();
         this.combustible -= daño;

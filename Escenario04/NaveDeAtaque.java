@@ -2,6 +2,19 @@ import greenfoot.*;
 
 public class NaveDeAtaque extends NaveAliada implements Atacante {
 
+    public NaveDeAtaque() {
+        super();
+    }
+    
+    public NaveDeAtaque(Direccion direccion, int combustible) {
+        super();
+        
+        this.direccion = direccion;
+        setRotation(direccion.rotacion);
+        
+        this.combustible = combustible;
+    }
+    
     public void act() {
         String key = Greenfoot.getKey();
         if (key != null) {
@@ -78,6 +91,8 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
         updateImage();
         setRotation(direccion.rotacion);
         Greenfoot.delay(20);
+        consumirCombustible(obtenerConsumoPorAtaque());
+
         Actor actor = getOneObjectAtOffset(this.direccion.dx, this.direccion.dy, Actor.class);
         if (!(actor instanceof Dañable)) {
             return;
@@ -86,8 +101,6 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
         if (objetivo != null) {
             objetivo.recibirDañoDe(this);
         }
-
-        consumirCombustible(obtenerConsumoPorAtaque());
     }
 
     public void avanzarHacia(Direccion direccion) {

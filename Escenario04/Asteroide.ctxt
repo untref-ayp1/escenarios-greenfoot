@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=void\ actualizarImagen()
 comment5.params=world
 comment5.target=void\ addedToWorld(greenfoot.World)
-numComments=6
+comment6.params=
+comment6.target=int\ obtenerTama\u00F1oMaximo()
+numComments=7

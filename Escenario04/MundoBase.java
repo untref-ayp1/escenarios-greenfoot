@@ -23,6 +23,8 @@ public abstract class MundoBase extends World {
             for (int y = 0; y < getHeight(); y++) {
                 getBackground().setColor(Color.WHITE);
                 getBackground().drawRect(x * cell, y * cell, cell, cell);
+                if ((x + y) % 2 == 0)
+                    marcarCelda(x, y, new Color(255, 255, 255, 40));
             }
         }
 
