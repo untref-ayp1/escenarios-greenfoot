@@ -1,5 +1,3 @@
-import greenfoot.*;
-
 public class Piloto00 extends PilotoBase {
     NaveDeAtaque navePilotada;
 
@@ -8,7 +6,7 @@ public class Piloto00 extends PilotoBase {
     }
 
     void despegar() {
-        // encender motores
+        navePilotada.encenderMotores();
     }
 
     void avanzarAlNortePor(int casilleros) {

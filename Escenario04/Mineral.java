@@ -1,11 +1,3 @@
-import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
-/**
- * Write a description of class Mineral here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
- */
 public class Mineral extends Asteroide {
     private int vidaInicial = 0;
     public Mineral() {

@@ -1,7 +1,8 @@
 import greenfoot.*;
 
 public class NaveDeAtaque extends NaveAliada implements Atacante {
-
+    boolean motoresEncendidos = false;
+    
     public NaveDeAtaque() {
         super();
     }
@@ -14,33 +15,25 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
         
         this.combustible = combustible;
     }
-    
-    public void act() {
-        String key = Greenfoot.getKey();
-        if (key != null) {
-            boolean check = false;
-            switch (key) {
-                case "w":
-                case "up":
-                    moverHacia(Direccion.NORTE);
-                    break;
-                case "a":
-                case "left":
-                    moverHacia(Direccion.OESTE);
-                    break;
-                case "s":
-                case "down":
-                    moverHacia(Direccion.SUR);
-                    break;
-                case "d":
-                case "right":
-                    moverHacia(Direccion.ESTE);
-                    break;
-            }
+
+    void encenderMotores() {
+        if (this.combustible > 0) {
+            this.motoresEncendidos = true;
+            int tamCelda = getWorld().getCellSize();
+            baseImage = new GreenfootImage("weaponized-ship-on.png");
+            baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+            updateImage();
         }
-
     }
-
+    
+    void apagarMotores() {
+        this.motoresEncendidos = false;
+        int tamCelda = getWorld().getCellSize();
+        baseImage = new GreenfootImage("weaponized-ship.png");
+        baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+        updateImage();
+    }
+    
     public boolean estaEnElBorde() {
         return isAtEdge();
     }
@@ -83,8 +76,19 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
         return 10;
     }
 
+    protected boolean puedeActuar() {
+        return super.puedeActuar() && this.motoresEncendidos;
+    }
+    
+    protected void consumirCombustible(int cantidad) {
+        super.consumirCombustible(cantidad);
+        if (combustible <= 0) {
+            this.apagarMotores();
+        }
+    }
+    
     public void atacarHacia(Direccion direccion) {
-        if (this.combustible <= 0) {
+        if (!puedeActuar()) {
             return;
         }
         this.direccion = direccion;
@@ -104,6 +108,9 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
     }
 
     public void avanzarHacia(Direccion direccion) {
+        if (!puedeActuar()) {
+            return;
+        }
         super.moverHacia(direccion);
     }
 

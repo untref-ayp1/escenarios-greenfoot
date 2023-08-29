@@ -59,8 +59,12 @@ public abstract class NaveAliada extends NaveBase {
         return 1.0 * combustible / obtenerCombustibleMaximo();
     }
 
+    protected boolean puedeActuar() {
+        return this.combustible > 0;
+    }
+    
     protected boolean moverHacia(Direccion direccion) {
-        if (this.combustible < obtenerConsumoPorMovimiento()) {
+        if (!puedeActuar() || this.combustible < obtenerConsumoPorMovimiento()) {
             return false;
         }
         if (!super.moverHacia(direccion)) {

@@ -20,7 +20,6 @@ public class Mundo05ZigZag extends MundoBase {
     }
 
     protected void generarAsteroides() {
-        boolean o = false, x = true;
         boolean[][] asteroides = {};
         poblarAsteroides(asteroides);
     }

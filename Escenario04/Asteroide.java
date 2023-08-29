@@ -6,6 +6,10 @@ public class Asteroide extends Actor implements Dañable {
     public Asteroide() {
         this.vida = 51 + (int) (Math.random() * 50);
     }
+    
+    public Asteroide(int vida) {
+        this.vida = vida;
+    }
 
     public void recibirDañoDe(Atacante atacante) {
         int daño = atacante.obtenerDaño();
