@@ -6,16 +6,19 @@ public class Mundo0607Espiral extends MundoBase {
 		super(13, 14);
 	}
 
-	protected void generarNave() {
+	@Override
+	protected void generarNaves() {
 		agregar(new NaveDeAtaque(), 6, 7);
 	}
 
+	@Override
 	protected void generarPOIs() {
 		marcarCelda(6, 7, new Color(0, 0, 200, 150));
 		marcarCelda(6, 3, new Color(200, 200, 0, 150));
 		marcarCelda(6, 1, new Color(250, 250, 0, 150));
 	}
 
+	@Override
 	protected void generarItems() {
 		agregar(new Item(), 4, 8);
 		agregar(new Item(), 9, 9);
@@ -29,11 +32,5 @@ public class Mundo0607Espiral extends MundoBase {
 		agregar(new Item(), 1, 12);
 		agregar(new Item(), 10, 11);
 		agregar(new Item(), 11, 12);
-	}
-
-	protected void generarAsteroides() {
-		boolean o = false, x = true;
-		boolean[][] asteroides = {};
-		poblarAsteroides(asteroides);
 	}
 }

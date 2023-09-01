@@ -1,9 +1,9 @@
-import greenfoot.*;
+import greenfoot.Color;
 
 public class Mundo01 extends MundoBase {
 
     public Mundo01() {
-        super(10, 8);
+        super(10, 8, 80);
     }
 
     @Override
@@ -11,14 +11,12 @@ public class Mundo01 extends MundoBase {
         Nave centinela = new Nave();
         int posicionEnX = 2;
         int posicionEnY = 6;
+        // agrega la nave centinela en la posición 2, 6
         agregar(centinela, posicionEnX, posicionEnY);
-        // agrega la nave en la posición 2, 6
     }
 
     @Override
     protected void generarPOIs() {
-        int cell = getCellSize();
-
         marcarCelda(2, 6, new Color(200, 0, 0, 150));
         marcarCelda(7, 1, new Color(0, 200, 0, 150));
     }
@@ -35,9 +33,16 @@ public class Mundo01 extends MundoBase {
     @Override
     protected void generarAsteroides() {
         boolean f = false, t = true;
-        boolean[][] asteroides = { { f, f, f, f, f, f, f, f, f, f }, { f, f, f, f, t, f, f, f, f, f },
-                { f, f, f, f, f, f, f, f, f, t }, { f, f, t, f, f, t, f, f, f, f }, { f, t, f, t, f, f, f, f, t, f },
-                { f, f, f, f, f, f, t, f, f, f }, { f, f, f, f, f, t, f, f, f, f }, { f, f, f, f, f, f, f, f, f, f }, };
+        boolean[][] asteroides = {
+        		{ f, f, f, f, f, f, f, f, f, f },
+        		{ f, f, f, f, t, f, f, f, f, f },
+                { f, f, f, f, f, f, f, f, f, t },
+                { f, f, t, f, f, t, f, f, f, f },
+                { f, t, f, t, f, f, f, f, t, f },
+                { f, f, f, f, f, f, t, f, f, f },
+                { f, f, f, f, f, t, f, f, f, f },
+                { f, f, f, f, f, f, f, f, f, f },
+        };
         poblarAsteroidesConMatriz(asteroides);
     }
 }

@@ -6,7 +6,8 @@ public class Mundo08Auxilio extends MundoBase {
 		super(3, 12);
 	}
 
-	protected void generarNave() {
+	@Override
+	protected void generarNaves() {
 		agregar(new NaveRecolectora(), 1, 6);
 
 		agregar(new NaveDeAtaque(Direccion.SUR, 0), 0, 7);
@@ -18,13 +19,12 @@ public class Mundo08Auxilio extends MundoBase {
 		agregar(new NaveDeAtaqueEnemiga(Direccion.NORTE), 2, 11);
 	}
 
+	@Override
 	protected void generarPOIs() {
 		marcarCelda(1, 6, new Color(0, 0, 200, 150));
 	}
 
-	protected void generarItems() {
-	}
-
+	@Override
 	protected void generarAsteroides() {
 		agregar(new Mineral(500), 2, 0);
 		agregar(new Mineral(100), 0, 6);
