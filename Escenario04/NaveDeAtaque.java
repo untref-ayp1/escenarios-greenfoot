@@ -1,132 +1,132 @@
 import greenfoot.*;
 
 public class NaveDeAtaque extends NaveAliada implements Atacante {
-    boolean motoresEncendidos = false;
-    
-    public NaveDeAtaque() {
-        super();
-    }
-    
-    public NaveDeAtaque(Direccion direccion, int combustible) {
-        super();
-        
-        this.direccion = direccion;
-        setRotation(direccion.rotacion);
-        
-        this.combustible = combustible;
-    }
+	boolean motoresEncendidos = false;
 
-    void encenderMotores() {
-        if (this.combustible > 0) {
-            this.motoresEncendidos = true;
-            int tamCelda = getWorld().getCellSize();
-            baseImage = new GreenfootImage("weaponized-ship-on.png");
-            baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
-            updateImage();
-        }
-    }
-    
-    void apagarMotores() {
-        this.motoresEncendidos = false;
-        int tamCelda = getWorld().getCellSize();
-        baseImage = new GreenfootImage("weaponized-ship.png");
-        baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
-        updateImage();
-    }
-    
-    public boolean estaEnElBorde() {
-        return isAtEdge();
-    }
+	public NaveDeAtaque() {
+		super();
+	}
 
-    public boolean hayVacioHacia(Direccion direccion) {
-        int width = getWorld().getWidth() - 1;
-        int height = getWorld().getHeight() - 1;
-        int x = getX();
-        int y = getY(); 
+	public NaveDeAtaque(Direccion direccion, int combustible) {
+		super();
 
-        switch (direccion) {
-            case NORTE:
-                return y == 0;
-            case SUR:
-                return y == height;
-            case ESTE:
-                return x == width;
-            case OESTE:
-                return x == 0;
-        }
-        return false;
-    }
+		this.direccion = direccion;
+		setRotation(direccion.rotacion);
 
-    @Override
-    public int obtenerDaño() {
-        return 35;
-    }
+		this.combustible = combustible;
+	}
 
-    @Override
-    int obtenerConsumoPorMovimiento() {
-        return 7;
-    }
+	void encenderMotores() {
+		if (this.combustible > 0) {
+			this.motoresEncendidos = true;
+			int tamCelda = getWorld().getCellSize();
+			baseImage = new GreenfootImage("weaponized-ship-on.png");
+			baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+			updateImage();
+		}
+	}
 
-    @Override
-    int obtenerCombustibleMaximo() {
-        return 150;
-    }
+	void apagarMotores() {
+		this.motoresEncendidos = false;
+		int tamCelda = getWorld().getCellSize();
+		baseImage = new GreenfootImage("weaponized-ship.png");
+		baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+		updateImage();
+	}
 
-    int obtenerConsumoPorAtaque() {
-        return 10;
-    }
+	public boolean estaEnElBorde() {
+		return isAtEdge();
+	}
 
-    protected boolean puedeActuar() {
-        return super.puedeActuar() && this.motoresEncendidos;
-    }
-    
-    protected void consumirCombustible(int cantidad) {
-        super.consumirCombustible(cantidad);
-        if (combustible <= 0) {
-            this.apagarMotores();
-        }
-    }
-    
-    public void atacarHacia(Direccion direccion) {
-        if (!puedeActuar()) {
-            return;
-        }
-        this.direccion = direccion;
-        updateImage();
-        setRotation(direccion.rotacion);
-        Greenfoot.delay(20);
-        consumirCombustible(obtenerConsumoPorAtaque());
+	public boolean hayVacioHacia(Direccion direccion) {
+		int width = getWorld().getWidth() - 1;
+		int height = getWorld().getHeight() - 1;
+		int x = getX();
+		int y = getY();
 
-        Actor actor = getOneObjectAtOffset(this.direccion.dx, this.direccion.dy, Actor.class);
-        if (!(actor instanceof Dañable)) {
-            return;
-        }
-        Dañable objetivo = (Dañable) actor;
-        if (objetivo != null) {
-            objetivo.recibirDañoDe(this);
-        }
-    }
+		switch (direccion) {
+		case NORTE:
+			return y == 0;
+		case SUR:
+			return y == height;
+		case ESTE:
+			return x == width;
+		case OESTE:
+			return x == 0;
+		}
+		return false;
+	}
 
-    public void avanzarHacia(Direccion direccion) {
-        if (!puedeActuar()) {
-            return;
-        }
-        super.moverHacia(direccion);
-    }
+	@Override
+	public int obtenerDaño() {
+		return 35;
+	}
 
-    public int obtenerCombustible() {
-        return super.obtenerCombustible();
-    }
+	@Override
+	int obtenerConsumoPorMovimiento() {
+		return 7;
+	}
 
-    public boolean hayAsteroideHacia(Direccion direccion) {
-        return super.hayAsteroideHacia(direccion);
-    }
+	@Override
+	int obtenerCombustibleMaximo() {
+		return 150;
+	}
 
-    public boolean hayItemHacia(Direccion direccion) {
-        return super.hayItemHacia(direccion);
-    }
+	int obtenerConsumoPorAtaque() {
+		return 10;
+	}
 
-    public boolean hayNaveHacia(Direccion direccion) {
-        return super.hayNaveHacia(direccion);
-    }
+	protected boolean puedeActuar() {
+		return super.puedeActuar() && this.motoresEncendidos;
+	}
+
+	protected void consumirCombustible(int cantidad) {
+		super.consumirCombustible(cantidad);
+		if (combustible <= 0) {
+			this.apagarMotores();
+		}
+	}
+
+	public void atacarHacia(Direccion direccion) {
+		if (!puedeActuar()) {
+			return;
+		}
+		this.direccion = direccion;
+		updateImage();
+		setRotation(direccion.rotacion);
+		Greenfoot.delay(20);
+		consumirCombustible(obtenerConsumoPorAtaque());
+
+		Actor actor = getOneObjectAtOffset(this.direccion.dx, this.direccion.dy, Actor.class);
+		if (!(actor instanceof Dañable)) {
+			return;
+		}
+		Dañable objetivo = (Dañable) actor;
+		if (objetivo != null) {
+			objetivo.recibirDañoDe(this);
+		}
+	}
+
+	public void avanzarHacia(Direccion direccion) {
+		if (!puedeActuar()) {
+			return;
+		}
+		super.moverHacia(direccion);
+	}
+
+	public int obtenerCombustible() {
+		return super.obtenerCombustible();
+	}
+
+	public boolean hayAsteroideHacia(Direccion direccion) {
+		return super.hayAsteroideHacia(direccion);
+	}
+
+	public boolean hayItemHacia(Direccion direccion) {
+		return super.hayItemHacia(direccion);
+	}
+
+	public boolean hayNaveHacia(Direccion direccion) {
+		return super.hayNaveHacia(direccion);
+	}
 }

@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=NaveDeAtaqueEnemiga
+comment1.params=direccion
+comment1.target=NaveDeAtaqueEnemiga(Direccion)
+comment2.params=direccion\ salud
+comment2.target=NaveDeAtaqueEnemiga(Direccion,\ int)
+comment3.params=atacante
+comment3.target=void\ recibirDa\u00F1oDe(Atacante)
+comment4.params=
+comment4.target=int\ obtenerDa\u00F1o()
+comment5.params=
+comment5.target=int\ obtenerSalud()
+comment6.params=objetivo
+comment6.target=void\ atacar(Da\u00F1able)
+comment7.params=direccion
+comment7.target=void\ atacarHacia(Direccion)
+numComments=8

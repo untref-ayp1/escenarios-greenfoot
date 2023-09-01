@@ -18,7 +18,8 @@ public class Mundo02 extends MundoBase {
 
 	}
 
-	protected void generarPOIs() { }
+	protected void generarPOIs() {
+	}
 
 	protected void generarItems() {
 		agregar(new Item(), 4, 2);
@@ -28,16 +29,9 @@ public class Mundo02 extends MundoBase {
 
 	protected void generarAsteroides() {
 		boolean o = false, x = true;
-		boolean[][] asteroides = {
-				{ o, o, o, o, o, o, o, o, o },
-				{ o, x, x, o, o, o, o, o, o },
-				{ o, o, x, o, o, o, x, o, o },
-				{ o, o, o, o, o, o, o, x, x },
-				{ o, o, x, o, o, o, o, o, o },
-				{ o, o, o, o, o, o, o, o, o },
-				{ x, o, o, o, o, o, x, o, o },
-				{ o, o, o, o, o, o, o, o, o },
-			};
+		boolean[][] asteroides = { { o, o, o, o, o, o, o, o, o }, { o, x, x, o, o, o, o, o, o },
+				{ o, o, x, o, o, o, x, o, o }, { o, o, o, o, o, o, o, x, x }, { o, o, x, o, o, o, o, o, o },
+				{ o, o, o, o, o, o, o, o, o }, { x, o, o, o, o, o, x, o, o }, { o, o, o, o, o, o, o, o, o }, };
 		poblarAsteroides(asteroides);
 	}
 }

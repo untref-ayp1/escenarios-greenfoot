@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=NaveEnemiga
+comment1.params=direccion
+comment1.target=NaveEnemiga(Direccion)
+comment2.params=world
+comment2.target=void\ addedToWorld(greenfoot.World)
+comment3.params=
+comment3.target=double\ obtenerProporcionDeSalud()
+comment4.params=atacante
+comment4.target=void\ recibirDa\u00F1oDe(Atacante)
+comment5.params=
+comment5.target=void\ explotar()
+comment6.params=
+comment6.target=void\ actualizarImagen()
+numComments=7

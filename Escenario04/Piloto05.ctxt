@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=Piloto05
+comment0.text=\n\ Write\ a\ description\ of\ class\ Piloto05\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=nave
+comment1.target=void\ subirse(NaveDeAtaque)
+comment2.params=casilleros\ direccion
+comment2.target=void\ avanzarPorHacia(int,\ Direccion)
+comment3.params=
+comment3.target=void\ maniobrar()
+numComments=4

@@ -1,110 +1,111 @@
 import greenfoot.*;
 
 public abstract class NaveAliada extends NaveBase {
-    protected int combustible;
+	protected int combustible;
 
-    public NaveAliada() {
-        super();
-        this.combustible = obtenerCombustibleMaximo();
-    }
+	public NaveAliada() {
+		super();
+		this.combustible = obtenerCombustibleMaximo();
+	}
 
-    abstract int obtenerCombustibleMaximo();
-    abstract int obtenerConsumoPorMovimiento();
-    
-    public void recibirCombustible(int cantidad) {
-        this.combustible = Math.min(this.combustible + cantidad, obtenerCombustibleMaximo());
-        updateImage();
-    }
-    
-    public void recibirDañoDe(Atacante atacante) {
-        int daño = atacante.obtenerDaño();
-        this.combustible -= daño;
-        updateImage();
-        explotar();
-        if (this.combustible <= 0) {
-            getWorld().removeObject(this);
-        }
-    }
+	abstract int obtenerCombustibleMaximo();
 
-    private void explotar() {
-        Explosion explosion = new Explosion();
-        getWorld().addObject(explosion, this.getX(), getY());
-        explosion.animar();
-        getWorld().removeObject(explosion);
-    }
+	abstract int obtenerConsumoPorMovimiento();
 
-    @Override
-    protected void addedToWorld(World world) {
-        super.addedToWorld(world);
+	public void recibirCombustible(int cantidad) {
+		this.combustible = Math.min(this.combustible + cantidad, obtenerCombustibleMaximo());
+		updateImage();
+	}
 
-        baseImage = getImage();
-        updateImage();
-    }
+	public void recibirDañoDe(Atacante atacante) {
+		int daño = atacante.obtenerDaño();
+		this.combustible -= daño;
+		updateImage();
+		explotar();
+		if (this.combustible <= 0) {
+			getWorld().removeObject(this);
+		}
+	}
 
-    protected void consumirCombustible(int cantidad) {
-        this.combustible -= cantidad;
-        updateImage();
-    }
+	private void explotar() {
+		Explosion explosion = new Explosion();
+		getWorld().addObject(explosion, this.getX(), getY());
+		explosion.animar();
+		getWorld().removeObject(explosion);
+	}
 
-    public void cargarCombustible(int combustible) {
-        this.combustible = Math.min(obtenerCombustibleMaximo(), this.combustible + combustible);
-        updateImage();
-    }
+	@Override
+	protected void addedToWorld(World world) {
+		super.addedToWorld(world);
 
-    public int obtenerCombustible() {
-        return this.combustible;
-    }
+		baseImage = getImage();
+		updateImage();
+	}
 
-    private double obtenerProporcionDeCombustible() {
-        return 1.0 * combustible / obtenerCombustibleMaximo();
-    }
+	protected void consumirCombustible(int cantidad) {
+		this.combustible -= cantidad;
+		updateImage();
+	}
 
-    protected boolean puedeActuar() {
-        return this.combustible > 0;
-    }
-    
-    protected boolean moverHacia(Direccion direccion) {
-        if (!puedeActuar() || this.combustible < obtenerConsumoPorMovimiento()) {
-            return false;
-        }
-        if (!super.moverHacia(direccion)) {
-            return false;
-        }
-        consumirCombustible(obtenerConsumoPorMovimiento());
+	public void cargarCombustible(int combustible) {
+		this.combustible = Math.min(obtenerCombustibleMaximo(), this.combustible + combustible);
+		updateImage();
+	}
 
-        Item item = (Item) getOneObjectAtOffset(0, 0, Item.class);
-        if (item != null) {
-            this.cargarCombustible(item.serRecogido());
-        }
-        return true;
-    }
+	public int obtenerCombustible() {
+		return this.combustible;
+	}
 
-    protected void updateImage() {
-        GreenfootImage canvas = new GreenfootImage(baseImage.getWidth(),
-                baseImage.getHeight() + getWorld().getCellSize() / 3);
+	private double obtenerProporcionDeCombustible() {
+		return 1.0 * combustible / obtenerCombustibleMaximo();
+	}
 
-        canvas.setColor(Color.BLACK);
-        canvas.fillRect(2, baseImage.getHeight() - 2, getWorld().getCellSize() - 4, getWorld().getCellSize() / 3 - 4);
-        canvas.setColor(Color.YELLOW);
+	protected boolean puedeActuar() {
+		return this.combustible > 0;
+	}
 
-        canvas.fillRect(4, baseImage.getHeight(),
-                (int) ((getWorld().getCellSize() - 6) * this.obtenerProporcionDeCombustible()) - 2, 8);
+	protected boolean moverHacia(Direccion direccion) {
+		if (!puedeActuar() || this.combustible < obtenerConsumoPorMovimiento()) {
+			return false;
+		}
+		if (!super.moverHacia(direccion)) {
+			return false;
+		}
+		consumirCombustible(obtenerConsumoPorMovimiento());
 
-        canvas.rotate(360 - direccion.rotacion);
+		Item item = (Item) getOneObjectAtOffset(0, 0, Item.class);
+		if (item != null) {
+			this.cargarCombustible(item.serRecogido());
+		}
+		return true;
+	}
 
-        canvas.drawImage(baseImage, 0, getWorld().getCellSize() / 6);
-        setImage(canvas);
-    }
+	protected void updateImage() {
+		GreenfootImage canvas = new GreenfootImage(baseImage.getWidth(),
+				baseImage.getHeight() + getWorld().getCellSize() / 3);
 
-    public boolean hayAsteroideHacia(Direccion direccion) {
-        return super.hayActorHacia(Asteroide.class, direccion);
-    }
+		canvas.setColor(Color.BLACK);
+		canvas.fillRect(2, baseImage.getHeight() - 2, getWorld().getCellSize() - 4, getWorld().getCellSize() / 3 - 4);
+		canvas.setColor(Color.YELLOW);
 
-    public boolean hayItemHacia(Direccion direccion) {
-        return super.hayActorHacia(Item.class, direccion);
-    }
+		canvas.fillRect(4, baseImage.getHeight(),
+				(int) ((getWorld().getCellSize() - 6) * this.obtenerProporcionDeCombustible()) - 2, 8);
 
-    public boolean hayNaveHacia(Direccion direccion) {
-        return super.hayActorHacia(NaveBase.class, direccion);
-    }
+		canvas.rotate(360 - direccion.rotacion);
+
+		canvas.drawImage(baseImage, 0, getWorld().getCellSize() / 6);
+		setImage(canvas);
+	}
+
+	public boolean hayAsteroideHacia(Direccion direccion) {
+		return super.hayActorHacia(Asteroide.class, direccion);
+	}
+
+	public boolean hayItemHacia(Direccion direccion) {
+		return super.hayActorHacia(Item.class, direccion);
+	}
+
+	public boolean hayNaveHacia(Direccion direccion) {
+		return super.hayActorHacia(NaveBase.class, direccion);
+	}
 }
