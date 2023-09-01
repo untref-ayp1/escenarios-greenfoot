@@ -8,7 +8,7 @@ public class Mundo01 extends MundoBase {
 
     @Override
     protected void generarNaves() {
-        Nave centinela = new Nave();
+        NaveExploradora centinela = new NaveExploradora();
         int posicionEnX = 2;
         int posicionEnY = 6;
         // agrega la nave centinela en la posición 2, 6
@@ -17,6 +17,7 @@ public class Mundo01 extends MundoBase {
 
     @Override
     protected void generarPOIs() {
+        super.generarPOIs();
         marcarCelda(2, 6, new Color(200, 0, 0, 150));
         marcarCelda(7, 1, new Color(0, 200, 0, 150));
     }
@@ -34,8 +35,8 @@ public class Mundo01 extends MundoBase {
     protected void generarAsteroides() {
         boolean f = false, t = true;
         boolean[][] asteroides = {
-        		{ f, f, f, f, f, f, f, f, f, f },
-        		{ f, f, f, f, t, f, f, f, f, f },
+                { f, f, f, f, f, f, f, f, f, f },
+                { f, f, f, f, t, f, f, f, f, f },
                 { f, f, f, f, f, f, f, f, f, t },
                 { f, f, t, f, f, t, f, f, f, f },
                 { f, t, f, t, f, f, f, f, t, f },

@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=Asteroide
-comment1.params=
-comment1.target=void\ act()
-comment2.params=world
-comment2.target=void\ addedToWorld(greenfoot.World)
-numComments=3

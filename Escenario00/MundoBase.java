@@ -16,6 +16,7 @@ public abstract class MundoBase extends World {
         generarItems();
 
         generarNaves();
+        agregar(new Brujula(), ancho, alto);
     }
 
     protected void generarPOIs() { }

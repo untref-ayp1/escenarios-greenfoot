@@ -1,0 +1,1 @@
+../Escenario00/NaveExploradora.java
