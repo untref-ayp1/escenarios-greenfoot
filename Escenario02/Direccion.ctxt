@@ -1,9 +1,0 @@
-#BlueJ class context
-comment0.target=Direccion
-comment1.params=rotacion\ dx\ dy
-comment1.target=Direccion(int,\ int,\ int)
-comment2.params=
-comment2.target=Direccion\ opuesta()
-comment3.params=x0\ y0\ x1\ y1
-comment3.target=Direccion\ flecha(int,\ int,\ int,\ int)
-numComments=4
