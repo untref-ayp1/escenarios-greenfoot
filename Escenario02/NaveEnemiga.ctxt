@@ -11,5 +11,5 @@ comment4.target=void\ recibirDa\u00F1oDe(Atacante)
 comment5.params=
 comment5.target=void\ explotar()
 comment6.params=
-comment6.target=void\ updateImage()
+comment6.target=void\ actualizarImagen()
 numComments=7

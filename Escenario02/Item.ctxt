@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=Item
-comment1.params=world
-comment1.target=void\ addedToWorld(greenfoot.World)
+comment1.params=
+comment1.target=void\ actualizarImagen()
 comment2.params=
 comment2.target=int\ serRecogido()
 numComments=3
