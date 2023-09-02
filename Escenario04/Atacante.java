@@ -1,3 +1,1 @@
-public interface Atacante {
-	public int obtenerDaño();
-}
+../Escenario00/Atacante.java
