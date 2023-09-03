@@ -14,7 +14,7 @@ public abstract class NaveEnemiga extends NaveBase {
 		super.addedToWorld(world);
 	}
 
-	private double obtenerProporcionDeSalud() {
+	protected double obtenerProporcionDeIndicador() {
 		return 1.0 * this.salud / 100;
 	}
 
@@ -23,36 +23,14 @@ public abstract class NaveEnemiga extends NaveBase {
 		int daño = atacante.obtenerDaño();
 		this.salud -= daño;
 		actualizarImagen();
-		explotar();
+		Explosion.en(getWorld(), this.getX(), this.getY());
 		if (this.salud <= 0) {
 			getWorld().removeObject(this);
 		}
 	}
 
-	private void explotar() {
-		Explosion explosion = new Explosion();
-		getWorld().addObject(explosion, this.getX(), getY());
-		explosion.animar();
-		getWorld().removeObject(explosion);
-	}
-
-	protected void actualizarImagen() {
-		super.actualizarImagen();
-		GreenfootImage txtImg = new GreenfootImage(toString(), 20, Color.BLACK, null, null);
-
-		GreenfootImage canvas = new GreenfootImage(baseImage.getWidth(),
-				baseImage.getHeight() + getWorld().getCellSize() / 3);
-
-		canvas.setColor(Color.BLACK);
-		canvas.fillRect(2, baseImage.getHeight() - 2, getWorld().getCellSize() - 4, getWorld().getCellSize() / 3 - 4);
-		canvas.setColor(Color.RED);
-
-		canvas.fillRect(4, baseImage.getHeight(),
-				(int) ((getWorld().getCellSize() - 6) * this.obtenerProporcionDeSalud()) - 2, 8);
-
-		canvas.rotate(360 - direccion.rotacion);
-
-		canvas.drawImage(baseImage, 0, getWorld().getCellSize() / 6);
-		setImage(canvas);
+	@Override
+	protected Color colorDeBarra() {
+		return Color.RED;
 	}
 }

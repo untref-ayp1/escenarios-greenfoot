@@ -14,7 +14,7 @@ public class Mundo00 extends MundoBase {
         agregar(new NaveExploradoraEnemiga(Direccion.NORTE), 4, 0);
         agregar(new NaveDeAtaqueEnemiga(Direccion.NORTE), 5, 1);
 
-        agregar(new Piloto00(), 0, 4);
+        agregar(new PilotoDeEjemplo(), 0, 4);
     }
 
     protected void generarPOIs() {

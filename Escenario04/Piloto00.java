@@ -1,8 +1,14 @@
 public class Piloto00 extends PilotoBase {
 	NaveDeAtaque navePilotada;
 
-	void subirse(NaveDeAtaque nave) {
-		navePilotada = nave;
+	@Override
+	public void subirse(NaveDeAtaque nave) {
+		super.subirse(nave);
+	}
+	
+	@Override
+	public void bajarse() {
+		super.bajarse();
 	}
 
 	void despegar() {

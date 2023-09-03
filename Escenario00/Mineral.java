@@ -20,7 +20,7 @@ public class Mineral extends Asteroide {
 		this.vida -= cantidad;
 
 		actualizarImagen();
-		explotar();
+		Explosion.en(getWorld(), this.getX(), this.getY());
 		if (this.vida <= 0) {
 			getWorld().removeObject(this);
 		}

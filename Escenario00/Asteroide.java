@@ -15,17 +15,10 @@ public class Asteroide extends ActorBase implements Dañable {
 		int daño = atacante.obtenerDaño();
 		this.vida -= daño;
 		actualizarImagen();
-		explotar();
+		Explosion.en(getWorld(), this.getX(), this.getY());
 		if (this.vida <= 0) {
 			getWorld().removeObject(this);
 		}
-	}
-
-	protected void explotar() {
-		Explosion x = new Explosion();
-		getWorld().addObject(x, this.getX(), getY());
-		x.animar();
-		getWorld().removeObject(x);
 	}
 
 	public void actualizarImagen() {
