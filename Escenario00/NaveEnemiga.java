@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 
 public abstract class NaveEnemiga extends NaveBase {
@@ -8,13 +7,7 @@ public abstract class NaveEnemiga extends NaveBase {
 		super(direccion);
 	}
 
-	@Override
-	protected void addedToWorld(World world) {
-		baseImage = getImage();
-		super.addedToWorld(world);
-	}
-
-	protected double obtenerProporcionDeIndicador() {
+	protected double obtenerProporcionDeBarraIndicadora() {
 		return 1.0 * this.salud / 100;
 	}
 
@@ -30,7 +23,12 @@ public abstract class NaveEnemiga extends NaveBase {
 	}
 
 	@Override
-	protected Color colorDeBarra() {
+	protected Color obtenerColorDeBarraIndicadora() {
 		return Color.RED;
+	}
+	
+	@Override
+	protected boolean puedeActuar() {
+		return true;
 	}
 }

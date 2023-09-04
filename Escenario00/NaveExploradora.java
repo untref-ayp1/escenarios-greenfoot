@@ -1,4 +1,3 @@
-
 public class NaveExploradora extends NaveAliada {
 	public void moverAlNorte() {
 		moverHacia(Direccion.NORTE);

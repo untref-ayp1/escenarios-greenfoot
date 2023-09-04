@@ -1,21 +1,35 @@
-
 import greenfoot.*;
 
 public class NaveRecolectora extends NaveAliada {
+	/**
+	 * post: Inicializa una NaveRecolectora, con suficiente carga para moverse. No
+	 * se inicia con {@link #obtenerCombustibleMaximo()}
+	 */
 	public NaveRecolectora() {
 		super();
 		this.combustible = 150;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	int obtenerConsumoPorMovimiento() {
 		return 10;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
 	int obtenerCombustibleMaximo() {
 		return 500;
 	}
 
-	void avanzarHacia(Direccion direccion) {
+	/**
+	 * {@see NaveAliada#moverHacia(Direccion)}
+	 */
+	public void avanzarHacia(Direccion direccion) {
 		super.moverHacia(direccion);
 	}
 
@@ -28,9 +42,8 @@ public class NaveRecolectora extends NaveAliada {
 			return;
 		}
 
-		this.direccion = direccion;
+		setDireccion(direccion);
 		actualizarImagen();
-		setRotation(direccion.rotacion);
 		Greenfoot.delay(20);
 
 		Actor actor = getOneObjectAtOffset(this.direccion.dx, this.direccion.dy, Actor.class);
@@ -52,9 +65,8 @@ public class NaveRecolectora extends NaveAliada {
 			return;
 		}
 
-		this.direccion = direccion;
+		setDireccion(direccion);
 		actualizarImagen();
-		setRotation(direccion.rotacion);
 		Greenfoot.delay(20);
 		consumirCombustible(obtenerConsumoPorMovimiento());
 
