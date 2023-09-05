@@ -1,11 +1,14 @@
 import greenfoot.*;
 
 /**
- * Clase base abstracta, para estandarizar los comportamientos de los actores de
- * la Batalla Espacial.
+ * Clase base para estandarizar los comportamientos de los actores de la Batalla
+ * Espacial.
  */
 public abstract class ActorBase extends Actor {
-	protected GreenfootImage baseImage;
+	/**
+	 * Es la imagen con la que inicializa el Actor
+	 */
+	protected GreenfootImage imagenBase;
 
 	/**
 	 * Punto de extensión para definir cómo debe actualizarse la imagen del Actor
@@ -17,7 +20,7 @@ public abstract class ActorBase extends Actor {
 	 */
 	@Override
 	protected void addedToWorld(World world) {
-		baseImage = getImage();
+		imagenBase = getImage();
 		actualizarImagen();
 	}
 }

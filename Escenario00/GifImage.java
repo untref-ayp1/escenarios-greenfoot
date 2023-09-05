@@ -1,10 +1,10 @@
-import greenfoot.*; // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+import greenfoot.*;
 import java.io.BufferedInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.net.URL;
-import java.util.List;
+
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This class can be used to read animated gif image files and extract the

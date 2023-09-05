@@ -1,4 +1,3 @@
-
 import greenfoot.*;
 
 public class NaveDeAtaque extends NaveAliada implements Atacante {
@@ -38,8 +37,8 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
 			this.motoresEncendidos = true;
 			Greenfoot.playSound("engine-on.wav");
 			int tamCelda = getWorld().getCellSize();
-			baseImage = new GreenfootImage("weaponized-ship-on.png");
-			baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+			imagenBase = new GreenfootImage("weaponized-ship-on.png");
+			imagenBase.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
 			actualizarImagen();
 		}
 	}
@@ -54,8 +53,8 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
 			this.motoresEncendidos = false;
 			Greenfoot.playSound("engine-off.wav");
 			int tamCelda = getWorld().getCellSize();
-			baseImage = new GreenfootImage("weaponized-ship.png");
-			baseImage.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
+			imagenBase = new GreenfootImage("weaponized-ship.png");
+			imagenBase.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
 			actualizarImagen();
 		}
 	}
@@ -108,7 +107,7 @@ public class NaveDeAtaque extends NaveAliada implements Atacante {
 	}
 
 	/**
-	 * {@see NaveAliada#moverHacia(Direccion)}
+	 * @see NaveAliada#moverHacia(Direccion)
 	 */
 	public void avanzarHacia(Direccion direccion) {
 		super.moverHacia(direccion);

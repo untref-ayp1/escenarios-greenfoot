@@ -1,7 +1,7 @@
 import greenfoot.*;
 
 /**
- * Define características y comportamientos comunes a todas las naves de la
+ * Define características y comportamientos comunes a todas las Naves de la
  * Batalla Espacial.
  */
 public abstract class NaveBase extends ActorBase implements Dañable {
@@ -27,7 +27,7 @@ public abstract class NaveBase extends ActorBase implements Dañable {
 	 */
 	public NaveBase(Direccion direccion) {
 		setDireccion(direccion);
-		baseImage = getImage();
+		imagenBase = getImage();
 	}
 
 	/**
@@ -50,19 +50,19 @@ public abstract class NaveBase extends ActorBase implements Dañable {
 		image.scale((int) (tamCelda * ESCALA_X), (int) (tamCelda * ESCALA_Y));
 		setImage(image);
 
-		GreenfootImage canvas = new GreenfootImage(baseImage.getWidth(),
-				baseImage.getHeight() + getWorld().getCellSize() / 3);
+		GreenfootImage canvas = new GreenfootImage(imagenBase.getWidth(),
+				imagenBase.getHeight() + getWorld().getCellSize() / 3);
 
 		canvas.setColor(Color.BLACK);
-		canvas.fillRect(4, baseImage.getHeight() - 2, getWorld().getCellSize() - 6, 12);
+		canvas.fillRect(4, imagenBase.getHeight() - 2, getWorld().getCellSize() - 6, 12);
 		canvas.setColor(obtenerColorDeBarraIndicadora());
 
-		canvas.fillRect(6, baseImage.getHeight(),
+		canvas.fillRect(6, imagenBase.getHeight(),
 				(int) ((getWorld().getCellSize() - 10) * obtenerProporcionDeBarraIndicadora()), 8);
 
 		canvas.rotate(360 - direccion.rotacion);
 
-		canvas.drawImage(baseImage, 0, getWorld().getCellSize() / 6);
+		canvas.drawImage(imagenBase, 0, getWorld().getCellSize() / 6);
 		setImage(canvas);
 
 	}

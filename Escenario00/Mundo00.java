@@ -27,6 +27,6 @@ public class Mundo00 extends MundoBase {
 
     protected void generarAsteroides() {
         agregar(new Asteroide(), 0, 2);
-        agregar(new Mineral(), 0, 3);
+        agregar(new AsteroideDeMineral(), 0, 3);
     }
 }

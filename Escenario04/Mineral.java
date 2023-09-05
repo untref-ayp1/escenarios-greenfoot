@@ -1,1 +1,0 @@
-../Escenario00/Mineral.java

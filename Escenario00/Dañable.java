@@ -3,7 +3,8 @@
  */
 public interface Dañable {
 	/**
-	 * post: el Dañable recibe una cierta cantidad de daño de un {@link Atacante}
+	 * post: el Dañable recibe una cierta cantidad de daño de un {@link Atacante},
+	 * definida por {@link Atacante#obtenerDaño()}
 	 * 
 	 * @param atacante es quien efectuará el daño que se recibirá
 	 */

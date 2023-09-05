@@ -26,7 +26,7 @@ public class Mundo08Auxilio extends MundoBase {
 
 	@Override
 	protected void generarAsteroides() {
-		agregar(new Mineral(500), 2, 0);
-		agregar(new Mineral(100), 0, 6);
+		agregar(new AsteroideDeMineral(500), 2, 0);
+		agregar(new AsteroideDeMineral(100), 0, 6);
 	}
 }
